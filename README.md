@@ -109,6 +109,17 @@ raw/chunks/
 🎉 That’s it! The pipeline will now run automatically.
 
 ---
+Initalially when there was total 5 files in *the chunks folder of the raw container[source that generate raw data]*
+<img width="2894" height="778" alt="image" src="https://github.com/user-attachments/assets/2ba51b3f-f8e1-4367-b8a0-805f5629350a" />
+<img width="3054" height="510" alt="image" src="https://github.com/user-attachments/assets/ab831bbc-9a28-44b7-a352-64a1eaf0119e" />
+<img width="2010" height="442" alt="image" src="https://github.com/user-attachments/assets/ec261c4d-f15c-4459-83cc-6e4ab3076ed6" />
+<img width="2984" height="928" alt="image" src="https://github.com/user-attachments/assets/c9c899b3-22af-47bd-9a94-f80e1da1824e" />
+
+When new files are uploaded in the raw/chunks folder
+<img width="2910" height="898" alt="image" src="https://github.com/user-attachments/assets/8c13b863-7a7d-4407-b586-6881354e7672" />
+
+
+---
 
 ## 🧠 What You Will Learn
 
