@@ -1,27 +1,13 @@
 # 🏥 Databricks Medallion Architecture – Healthcare ETL Pipeline
 
-This project demonstrates a **real-world, production-style ETL pipeline** built on **Azure Databricks** using the **Medallion Architecture**  
-(**Bronze → Silver → Gold**).
-
-The pipeline automatically processes hospital data when new files are uploaded and produces **analytics-ready fact and dimension tables**.
+This project demonstrates a **production-style ETL pipeline** built on **Azure Databricks** using the **Medallion Architecture (Bronze → Silver → Gold)**.  
+The pipeline automatically processes new hospital data and produces **analytics-ready fact and dimension tables** for reporting and analysis.
 
 ---
 
 ## 🏗️ Architecture Overview
 
-Raw Files (ADLS Gen2)
-
-↓
-
-Bronze Layer (Auto Loader)
-
-↓
-
-Silver Layer (Clean & Deduplicate)
-
-↓
-
-Gold Layer (Facts & Dimensions)
+Raw Files (ADLS Gen2) → Bronze Layer (Auto Loader) → Silver Layer (Clean & Deduplicate) → Gold Layer (Facts & Dimensions)
 
 ---
 
@@ -71,7 +57,7 @@ Gold Layer (Facts & Dimensions)
 - Builds **analytics-ready** tables
 - Creates **state-level KPIs** and hospital metrics
 - Produces **Fact & Dimension** tables
-- Optimized for BI tools (Power BI, Tableau)
+- Ready for dashboards and business reporting
 
 📘 Notebook:
 0004_gold
@@ -92,25 +78,7 @@ The job runs on a **schedule** and processes new data end-to-end
 
 ---
 
-## ▶️ How to Run This Project
-
-1️⃣ Upload CSV files to:
-raw/chunks/
-
-2️⃣ Clone this repo into **Databricks Repos**
-
-3️⃣ Update storage paths (ADLS Gen2) in notebooks
-
-4️⃣ Create a **Databricks Job** with task order: Bronze → Silver → Gold
-
-
-5️⃣ Run the job or schedule it (e.g. every 30 minutes)
-
-🎉 That’s it! The pipeline will now run automatically.
-
----
-
-## 📸 Pipeline Execution – End-to-End Proof (Visual Walkthrough)
+## 📸 Pipeline Execution – End-to-End (Visual Walkthrough)
 
 This section visually demonstrates how the pipeline behaves in **real-world conditions**, from manual execution to fully automated incremental processing.
 
@@ -178,6 +146,24 @@ The scheduled Databricks Job runs automatically and processes **only the newly a
 Finally, the Gold tables reflect **only the new incoming data**, confirming correct incremental behavior.
 
 <img width="2994" height="1028" alt="Gold tables updated" src="https://github.com/user-attachments/assets/37dee11b-b9ac-4b90-98f8-5c6bc4637e7d" />
+
+---
+
+## ▶️ How to Run This Project
+
+1️⃣ Upload CSV files to:
+raw/chunks/
+
+2️⃣ Clone this repo into **Databricks Repos**
+
+3️⃣ Update storage paths (ADLS Gen2) in notebooks
+
+4️⃣ Create a **Databricks Job** with task order: Bronze → Silver → Gold
+
+
+5️⃣ Run the job or schedule it (e.g. every 30 minutes)
+
+🎉 That’s it! The pipeline will now run automatically.
 
 ---
 
