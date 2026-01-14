@@ -109,15 +109,75 @@ raw/chunks/
 🎉 That’s it! The pipeline will now run automatically.
 
 ---
-Initalially when there was total 5 files in *the chunks folder of the raw container[source that generate raw data]*
-<img width="2894" height="778" alt="image" src="https://github.com/user-attachments/assets/2ba51b3f-f8e1-4367-b8a0-805f5629350a" />
-<img width="3054" height="510" alt="image" src="https://github.com/user-attachments/assets/ab831bbc-9a28-44b7-a352-64a1eaf0119e" />
-<img width="2010" height="442" alt="image" src="https://github.com/user-attachments/assets/ec261c4d-f15c-4459-83cc-6e4ab3076ed6" />
-<img width="2984" height="928" alt="image" src="https://github.com/user-attachments/assets/c9c899b3-22af-47bd-9a94-f80e1da1824e" />
 
-When new files are uploaded in the raw/chunks folder
-<img width="2910" height="898" alt="image" src="https://github.com/user-attachments/assets/8c13b863-7a7d-4407-b586-6881354e7672" />
+## 📸 Pipeline Execution – End-to-End Proof (Visual Walkthrough)
 
+This section visually demonstrates how the pipeline behaves in **real-world conditions**, from manual execution to fully automated incremental processing.
+
+---
+
+### 🟢 Initial Run – When 5 Files Exist in `raw/chunks`
+
+**Source:**  
+At the beginning, the `raw/chunks` folder contains **5 CSV files** (raw hospital data).
+
+<img width="2894" height="778" alt="Raw files in chunks folder" src="https://github.com/user-attachments/assets/2ba51b3f-f8e1-4367-b8a0-805f5629350a" />
+
+---
+
+### ▶️ Manual Pipeline Execution (First Run)
+
+The Databricks Job is triggered manually to validate the full pipeline.
+
+<img width="3054" height="510" alt="Manual job run" src="https://github.com/user-attachments/assets/ab831bbc-9a28-44b7-a352-64a1eaf0119e" />
+
+<img width="2010" height="442" alt="Bronze Silver Gold job success" src="https://github.com/user-attachments/assets/ec261c4d-f15c-4459-83cc-6e4ab3076ed6" />
+
+✔ Bronze ingests raw files  
+✔ Silver cleans and deduplicates  
+✔ Gold creates analytics tables  
+
+---
+
+### 🥇 Data Successfully Loaded into Gold Tables
+
+After the pipeline completes, data is available in **Gold fact and dimension tables**.
+
+<img width="2984" height="928" alt="Gold tables populated" src="https://github.com/user-attachments/assets/c9c899b3-22af-47bd-9a94-f80e1da1824e" />
+
+---
+
+## 🔄 Incremental Load – New Files Arrive Automatically
+
+Now, **new files are uploaded** to the `raw/chunks` folder.
+<img width="2910" height="898" alt="New raw files added" src="https://github.com/user-attachments/assets/8c13b863-7a7d-4407-b586-6881354e7672" />
+Auto-loaded into bronze/hospitals as Delta Lake (Parquet-based) format.
+<img width="2912" height="1018" alt="image" src="https://github.com/user-attachments/assets/4dc5bc93-9e86-4a31-ac7a-945a596a7625" />
+
+📌 **Important:**  
+The pipeline is **not reprocessing old files** — only new files are detected.
+
+---
+
+### ⚙️ Automated Job Triggered (No Manual Action)
+
+The scheduled Databricks Job runs automatically and processes **only the newly added files**.
+
+<img width="3046" height="426" alt="Job triggered automatically" src="https://github.com/user-attachments/assets/ff8a51d4-017e-40de-bf5e-76cfa2eaab07" />
+
+<img width="3004" height="1270" alt="Job run success" src="https://github.com/user-attachments/assets/13353575-651f-43d9-8e2e-26da328ca9d3" />
+
+✔ Incremental ingestion  
+✔ Safe re-runs  
+✔ No duplicates  
+
+---
+
+### ✅ Gold Tables Updated with New Data
+
+Finally, the Gold tables reflect **only the new incoming data**, confirming correct incremental behavior.
+
+<img width="2994" height="1028" alt="Gold tables updated" src="https://github.com/user-attachments/assets/37dee11b-b9ac-4b90-98f8-5c6bc4637e7d" />
 
 ---
 
